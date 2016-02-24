@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.rop</groupId>
+    <groupId>com.jm.rop</groupId>
     <artifactId>rop-parent</artifactId>
     <packaging>pom</packaging>
     <version>2.0</version>
@@ -26,7 +26,7 @@
         <servlet.version>2.5</servlet.version>
     </properties>
 
-    <profiles>
+    <!--<profiles>
         <profile>
             <id>35</id>
             <activation>
@@ -56,7 +56,7 @@
                 </snapshotRepository>
             </distributionManagement>
         </profile>
-    </profiles>
+    </profiles>-->
 
     <dependencyManagement>
         <dependencies>
@@ -90,11 +90,7 @@
                 <artifactId>commons-io</artifactId>
                 <version>2.4</version>
             </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>1.1.39</version>
-            </dependency>
+
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>multithread.context</artifactId>
@@ -205,12 +201,27 @@
             <dependency>
                 <groupId>net.sf.oval</groupId>
                 <artifactId>oval</artifactId>
-                <version>1.84_fix1</version>
+                <version>1.84</version>
             </dependency>
             <dependency>
                 <groupId>commons-beanutils</groupId>
                 <artifactId>commons-beanutils</artifactId>
                 <version>1.8.3</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.7</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>18.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

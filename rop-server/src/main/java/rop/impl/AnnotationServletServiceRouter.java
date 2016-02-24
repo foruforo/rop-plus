@@ -25,7 +25,7 @@ import rop.security.SecurityManager;
 import rop.session.DefaultSessionManager;
 import rop.session.SessionBindInterceptor;
 import rop.session.SessionManager;
-import rop.thirdparty.com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import rop.utils.RopUtils;
 
 import javax.servlet.http.HttpServletRequest;

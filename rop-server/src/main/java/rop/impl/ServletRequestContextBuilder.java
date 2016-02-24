@@ -27,7 +27,7 @@ import rop.converter.Style;
 import rop.request.ServiceRequest;
 import rop.request.SystemParameterNames;
 import rop.session.SessionManager;
-import rop.thirdparty.com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSON;
 import rop.utils.RopUtils;
 import rop.utils.spring.AnnotationUtils;
 

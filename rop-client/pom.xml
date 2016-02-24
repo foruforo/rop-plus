@@ -3,17 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>rop-parent</artifactId>
-        <groupId>com.github.rop</groupId>
+        <groupId>com.jm.rop</groupId>
         <version>2.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>rop-client</artifactId>
     <packaging>jar</packaging>
-    <name>rop-client</name>
+    <name>jm-rop-client</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
-            <groupId>com.github.rop</groupId>
+            <groupId>com.jm.rop</groupId>
             <artifactId>rop-common</artifactId>
             <version>${project.version}</version>
         </dependency>

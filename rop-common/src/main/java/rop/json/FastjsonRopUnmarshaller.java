@@ -1,7 +1,7 @@
 package rop.json;
 
 import rop.RopUnmarshaller;
-import rop.thirdparty.com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSON;
 
 /**
  * Fastjson 反序列化

@@ -1,8 +1,8 @@
 package rop.json;
 
 import rop.RopMarshaller;
-import rop.thirdparty.com.alibaba.fastjson.JSON;
-import rop.thirdparty.com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 
 /**
  * JSON 序列化
