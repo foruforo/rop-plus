@@ -7,14 +7,8 @@ import rop.Constants;
 import java.io.UnsupportedEncodingException;
 
 /**
- * <pre>
- *   Rop的上传文件编码格式为：
+ *     Rop的上传文件编码格式为：
  *   fileType@BASE64编码的文件内容
- * </pre>
- *
- * @author 陈雄华
- * @author luopeng
- * @version 1.0
  */
 public class UploadFileUtils {
 

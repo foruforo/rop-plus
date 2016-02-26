@@ -4,7 +4,6 @@ package rop;
  * <pre>
  *   拦截器，将在服务之前，服务之后响应之前调用
  * </pre>
- * @author 陈雄华
  */
 public interface Interceptor {
 

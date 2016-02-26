@@ -3,8 +3,7 @@ package rop;
 import org.springframework.validation.SmartValidator;
 
 /**
- *  更改请求对象创建{@link RopRequestContext}实例,子类可以根据多种传输协议定义自己的创建器。
- *  @author 陈雄华
+ *    更改请求对象创建{@link RopRequestContext}实例,子类可以根据多种传输协议定义自己的创建器。
  */
 public interface RequestContextBuilder {
 

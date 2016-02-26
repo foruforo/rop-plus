@@ -11,8 +11,6 @@ import java.util.Map;
 
 /**
  * 接到服务请求后，将产生一个{@link rop.RopRequestContext}上下文对象，它被本次请求直到返回响应的这个线程共享。
- * @author 陈雄华
- * @version 1.0
  */
 public interface RopRequestContext {
 

@@ -6,7 +6,6 @@ package rop.annotation;
  * </pre>
  *
  * @author 陈雄华
- * @author luopeng
  * @version 1.0
  */
 public enum HttpAction {

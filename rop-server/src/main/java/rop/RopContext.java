@@ -5,11 +5,9 @@ import rop.session.SessionManager;
 import java.util.Map;
 
 /**
- *  ROP服务方法的处理者的注册表
- *  @author 陈雄华
- *  @version 1.0
+ *    ROP服务方法的处理者的注册表
  */
-public interface RopContext {
+public interface lRopContext {
 
     /**
      * 注册一个服务处理器

@@ -3,7 +3,6 @@ package rop;
 /**
  *    抽象拦截器，实现类仅需覆盖特定的方法即可。
  */
-
 public abstract class AbstractInterceptor implements Interceptor {
 
     public void beforeService(RopRequestContext ropRequestContext) {

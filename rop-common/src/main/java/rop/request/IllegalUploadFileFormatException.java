@@ -1,12 +1,5 @@
 package rop.request;
 
-/**
- * <pre>
- * </pre>
- *
- * @author 陈雄华
- * @version 1.0
- */
 public class IllegalUploadFileFormatException extends IllegalArgumentException {
 
     public IllegalUploadFileFormatException() {

@@ -21,8 +21,6 @@ import java.io.IOException;
  *
  * 2.可通过"errorResourceBaseName"指定错误资源文件的基名，默认为“i18n/rop/ropError”.
  *
- * @author 陈雄华
- * @author luopeng
  * </pre>
  */
 public class RopServlet extends HttpServlet {

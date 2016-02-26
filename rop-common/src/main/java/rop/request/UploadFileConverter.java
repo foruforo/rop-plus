@@ -3,13 +3,7 @@ package rop.request;
 import rop.converter.RopConverter;
 
 /**
- * <pre>
- *   将以BASE64位编码字符串转换为字节数组的{@link UploadFile}对象
- * </pre>
- *
- * @author 陈雄华
- * @author luopeng
- * @version 1.0
+ *  将以BASE64位编码字符串转换为字节数组的{@link UploadFile}对象
  */
 public class UploadFileConverter implements RopConverter<UploadFile> {
 

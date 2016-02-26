@@ -1,10 +1,8 @@
 package rop.session;
 
 /**
- * <pre>
- *    会话管理器
- * </pre>
- * @author 陈雄华
+ * 会话管理器
+ *
  */
 public interface SessionManager {
 

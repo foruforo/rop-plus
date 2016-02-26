@@ -3,13 +3,7 @@ package rop.event;
 import rop.RopRequestContext;
 
 /**
- * <pre>
- *     服务开始事件
- * </pre>
- *
- * @author 陈雄华
- * @author luopeng
- * @version 1.0
+ *  服务开始事件
  */
 public class ServiceStartedEvent extends RopEvent {
 

@@ -2,8 +2,6 @@ package rop;
 
 /**
  *   对请求数据进行解析时发生异常
- *   @author 陈雄华
- *   @version 1.0
  */
 public class RopRequestParseException extends RopException {
     private String requestMessage;

@@ -11,7 +11,6 @@ import java.lang.annotation.*;
  * </pre>
  *
  * @author 陈雄华
- * @author luopeng
  * @version 1.0
  */
 @Target({ElementType.METHOD})

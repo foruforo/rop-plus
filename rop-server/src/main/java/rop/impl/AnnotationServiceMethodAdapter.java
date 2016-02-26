@@ -9,14 +9,9 @@ import rop.response.RopResponse;
 
 import java.lang.reflect.InvocationTargetException;
 
+
 /**
- * <pre>
- *     通过该服务方法适配器调用目标的服务方法
- * </pre>
- *
- * @author 陈雄华
- * @author luopeng
- * @version 1.0
+ *    通过该服务方法适配器调用目标的服务方法
  */
 public class AnnotationServiceMethodAdapter implements ServiceMethodAdapter {
 

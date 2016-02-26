@@ -1,7 +1,6 @@
 package rop;
 
 /**
- * Appkey Result
  * @author luopeng
  *         Created on 2014/6/16.
  */

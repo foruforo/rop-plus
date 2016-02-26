@@ -5,15 +5,6 @@ import rop.utils.spring.FileCopyUtils;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * <pre>
- *   文件上传对象
- * </pre>
- *
- * @author 陈雄华
- * @author luopeng
- * @version 1.0
- */
 //@IgnoreSign
 public class UploadFile {
 

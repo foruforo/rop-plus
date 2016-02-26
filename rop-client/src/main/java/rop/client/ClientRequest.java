@@ -5,11 +5,6 @@ import rop.request.ServiceRequest;
 
 import java.io.IOException;
 
-/**
- * 客户端请求
- * @author 陈雄华
- * @author luopeng
- */
 public interface ClientRequest {
 
 
