@@ -53,12 +53,13 @@ public class RopUtils {
 		try {
 			//密钥
 			String contactStr = secret;
-			//参数内容
+            //系统级参数
+            contactStr += contactValues(headerMap,null);
+            //自定义扩展
+            contactStr += contactValues(extInfoMap,null);
+			//业务参数内容
 			contactStr += contactValues(paramValues,ignoreParamNames);
-			//Header
-			contactStr += contactValues(headerMap,null);
-			//自定义扩展
-			contactStr += contactValues(extInfoMap,null);
+
 
 			byte[] sha1Digest = getSHA1Digest(contactStr);
 			return byte2hex(sha1Digest);

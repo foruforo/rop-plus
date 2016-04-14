@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  *    ROP服务方法的处理者的注册表
  */
-public interface lRopContext {
+public interface RopContext {
 
     /**
      * 注册一个服务处理器

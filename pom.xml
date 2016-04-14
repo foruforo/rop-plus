@@ -18,12 +18,13 @@
     </modules>
 
     <properties>
-        <spring.version>3.2.5.RELEASE</spring.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
         <surefire.version>2.6</surefire.version>
         <clover2.version>2.6.3</clover2.version>
         <build.timestamp>${maven.build.timestamp}</build.timestamp>
         <slf4j.version>1.7.7</slf4j.version>
         <servlet.version>2.5</servlet.version>
+        <jackson.version>2.7.3</jackson.version>
     </properties>
 
     <!--<profiles>
@@ -176,7 +177,7 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
                 <version>${servlet.version}</version>
-                <scope>compile</scope>
+               <!-- <scope>compile</scope>-->
             </dependency>
             <dependency>
                 <groupId>commons-codec</groupId>
@@ -222,6 +223,21 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>18.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

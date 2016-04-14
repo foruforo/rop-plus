@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 public class RopResponse implements Serializable {
 
-	private boolean success;
+	private boolean success = true;
 
 	private MainError error;
 

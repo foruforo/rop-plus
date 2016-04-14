@@ -12,6 +12,7 @@ public class FastjsonRopMarshaller implements RopMarshaller {
 
 	@Override
 	public String marshaller(Object object) {
-		return JSON.toJSONString(object,SerializerFeature.DisableCircularReferenceDetect);
+        return JSON.toJSONStringWithDateFormat(object,JSON.DEFFAULT_DATE_FORMAT,SerializerFeature.DisableCircularReferenceDetect);
+//		return JSON.toJSONString(object,SerializerFeature.DisableCircularReferenceDetect);
 	}
 }
