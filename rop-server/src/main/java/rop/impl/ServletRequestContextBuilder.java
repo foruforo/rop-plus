@@ -378,13 +378,15 @@ public class ServletRequestContextBuilder implements RequestContextBuilder {
 
 	private BindingResult doBind(HttpServletRequest webRequest, final RopRequestContext ropRequestContext, Class<?> classType, int index) {
 
+        /** ==============================暂时不用此种绑定方法=====================================
+
 		final Map<String, String> requestBodyMap = ropRequestContext.getRequestBodyMap();
 
 		final Map<String, Object> newRequestBodyMap = new HashMap<String, Object>();
 		for (Map.Entry<String, String> entry : requestBodyMap.entrySet()) {
 			newRequestBodyMap.put(entry.getKey(), entry.getValue());
 		}
-
+         //作转换,效率可能存在一定问题
 		//处理转换
 		ReflectionUtils.doWithFields(classType,new ReflectionUtils.FieldCallback() {
 			@Override
@@ -392,23 +394,26 @@ public class ServletRequestContextBuilder implements RequestContextBuilder {
 				if (converterContainer.support(field.getType()) && requestBodyMap.containsKey(field.getName())) {
 					RopConverter converter = converterContainer.getConverter(field.getType());
 					newRequestBodyMap.put(field.getName(), converter.convertToObject(requestBodyMap.get(field.getName())));
-				}else if(Style.JSON.equals(getStyle(field))){
+				}else if(Style.JSON.equals(getStyle(field))){//复杂对象绑定
 					newRequestBodyMap.put(field.getName(), JSON.parseObject(requestBodyMap.get(field.getName()),field.getType()));
 				}
 			}
 		});
+        =======================================================================================**/
 
-		//作转换,效率可能存在一定问题
 
 		Object bindObject = BeanUtils.instantiateClass(classType);
-        //增加根据流绑定对象
-        try {
-            bindObject = bindObjectWithSteam(webRequest,bindObject);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (HttpMediaTypeNotSupportedException e) {
-            e.printStackTrace();
+        //增加根据流绑定对象且只对第一个参数绑定
+        if(index==0){
+            try {
+                bindObject = bindObjectWithSteam(webRequest,bindObject);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (HttpMediaTypeNotSupportedException e) {
+                e.printStackTrace();
+            }
         }
+        //直接通过参数绑定对象，覆盖上面的对象
         //采用springmvc数据绑定方法
         ServletRequestDataBinder dataBinder = new ServletRequestDataBinder(bindObject, "bindObject");
         try {
@@ -423,7 +428,7 @@ public class ServletRequestContextBuilder implements RequestContextBuilder {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //直接通过参数绑定对象，覆盖上面的对象
+
        /* try {
 
 			org.apache.commons.beanutils.BeanUtils.populate(bindObject, newRequestBodyMap);
@@ -437,6 +442,7 @@ public class ServletRequestContextBuilder implements RequestContextBuilder {
 */
 //        BeanPropertyBindingResult bindingResult = dataBinder.getBindingResult();
                 //服务方法参数注解
+        //业务级参数验证--OVal，
 		String[] validateProfiles = null;
 		Annotation[][] parameterAnnotations = ropRequestContext.getServiceMethodDefinition().getMethodParameterAnnotaions();
 		Annotation[] parameterAnnotaion = parameterAnnotations[index];
