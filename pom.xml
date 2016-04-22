@@ -25,6 +25,8 @@
         <slf4j.version>1.7.7</slf4j.version>
         <servlet.version>2.5</servlet.version>
         <jackson.version>2.7.3</jackson.version>
+        <validation.version>1.1.0.Final</validation.version>
+        <hibernateValidator.version>5.2.4.Final</hibernateValidator.version>
     </properties>
 
     <!--<profiles>
@@ -177,6 +179,7 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
                 <version>${servlet.version}</version>
+                <scope>provided</scope>
                <!-- <scope>compile</scope>-->
             </dependency>
             <dependency>
@@ -202,7 +205,7 @@
             <dependency>
                 <groupId>net.sf.oval</groupId>
                 <artifactId>oval</artifactId>
-                <version>1.84</version>
+                <version>1.85</version>
             </dependency>
             <dependency>
                 <groupId>commons-beanutils</groupId>
@@ -238,6 +241,18 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
                 <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernateValidator.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
