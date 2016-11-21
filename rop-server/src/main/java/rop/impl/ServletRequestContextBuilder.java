@@ -58,8 +58,9 @@ import java.util.*;
  *     请求上下文Builder
  * </pre>
  *
- * @author 陈雄华
+ * @author 陈雄华,
  * @author luopeng
+ * @author Felix Wu
  * @version 1.0
  */
 public class ServletRequestContextBuilder implements RequestContextBuilder {
@@ -98,8 +99,9 @@ public class ServletRequestContextBuilder implements RequestContextBuilder {
 		requestContext.setIp(getRemoteAddr(servletRequest)); //感谢melin所指出的BUG
 
 		//设置服务的系统级参数
+		//1.从请求头中获取
 		resolveHeaders(servletRequest, requestContext);
-        //从urlparam中再次获取系统级参数
+        //2.从urlparam中再次获取系统级参数，added by Felix.
         resolveSysByParam(servletRequest, requestContext);
 		//处理Content-Type为multipart情况
 		if (isMultipartRequest(servletRequest)) {
@@ -138,38 +140,38 @@ public class ServletRequestContextBuilder implements RequestContextBuilder {
 
 
         if(StringUtils.isNotBlank(appKey)) {
-//            requestContext.getRequestHeaderMap().put(SystemParameterNames.getAppKey(), appKey);
+            requestContext.getRequestHeaderMap().put(SystemParameterNames.getAppKey(), appKey);
             requestContext.setAppKey(appKey);
         }
         if (StringUtils.isNotBlank(sessionId)) {
-//            requestContext.getRequestHeaderMap().put(SystemParameterNames.getSessionId(), sessionId);
+            requestContext.getRequestHeaderMap().put(SystemParameterNames.getSessionId(), sessionId);
             requestContext.setSessionId(sessionId);
         }
 
         if (StringUtils.isNotBlank(method)) {
-//            requestContext.getRequestHeaderMap().put(SystemParameterNames.getMethod(), method);
+            requestContext.getRequestHeaderMap().put(SystemParameterNames.getMethod(), method);
             requestContext.setMethod(method);
         }
         if (StringUtils.isNotBlank(version)) {
-//            requestContext.getRequestHeaderMap().put(SystemParameterNames.getVersion(), version);
+            requestContext.getRequestHeaderMap().put(SystemParameterNames.getVersion(), version);
             requestContext.setVersion(version);
         }
 
         if (StringUtils.isNotBlank(sign)) {
-//            requestContext.getRequestHeaderMap().put(SystemParameterNames.getSign(), sign);
+            requestContext.getRequestHeaderMap().put(SystemParameterNames.getSign(), sign);
             requestContext.setSign(sign);
         }
         if (StringUtils.isNotBlank(timestamp)) {
-//            requestContext.getRequestHeaderMap().put(SystemParameterNames.getTimestamp(), timestamp);
+            requestContext.getRequestHeaderMap().put(SystemParameterNames.getTimestamp(), timestamp);
             requestContext.setTimestamp(getTimestamp(servletRequest));
         }
         if(format != null){
-//            requestContext.getRequestHeaderMap().put(SystemParameterNames.getFormat(), format);
+            requestContext.getRequestHeaderMap().put(SystemParameterNames.getFormat(), format);
             requestContext.setFormat(format);
         }
 
         if(locale != null){
-//            requestContext.getRequestHeaderMap().put(SystemParameterNames.getLocale(), locale);
+            requestContext.getRequestHeaderMap().put(SystemParameterNames.getLocale(), locale);
             requestContext.setLocale(getLocale(servletRequest));
         }
 
@@ -478,6 +480,15 @@ public class ServletRequestContextBuilder implements RequestContextBuilder {
 	}
 
 
+	/**
+	 *
+	 * @param webRequest
+	 * @param bindObject
+	 * @param <T>
+	 * @return
+	 * @throws IOException
+	 * @throws HttpMediaTypeNotSupportedException
+     */
     public <T> Object bindObjectWithSteam(HttpServletRequest webRequest,
                                           Object bindObject ) throws IOException, HttpMediaTypeNotSupportedException {
 

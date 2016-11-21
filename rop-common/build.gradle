@@ -1,0 +1,25 @@
+
+description = 'jm-rop-common'
+dependencies {
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.7'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.4'
+    compile group: 'com.alibaba', name: 'fastjson', version:'1.2.7'
+    compile group: 'commons-codec', name: 'commons-codec', version:'1.9'
+    testCompile group: 'junit', name: 'junit', version:'4.11'
+    compile(group: 'com.google.code.findbugs', name: 'jsr305', version:'1.3.9') {
+       /* This dependency was originally in the Maven provided scope, but the project was not of type war.
+       This behavior is not yet supported by Gradle, so this dependency has been converted to a compile dependency.
+       Please review and delete this closure when resolved. */
+    }
+    compile(group: 'javax.inject', name: 'javax.inject', version:'1') {
+       /* This dependency was originally in the Maven provided scope, but the project was not of type war.
+       This behavior is not yet supported by Gradle, so this dependency has been converted to a compile dependency.
+       Please review and delete this closure when resolved. */
+    }
+}
+
+task packageTests(type: Jar) {
+  from sourceSets.test.output
+  classifier = 'tests'
+}
+artifacts.archives packageTests

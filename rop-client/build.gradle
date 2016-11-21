@@ -1,0 +1,11 @@
+
+description = 'jm-rop-client'
+dependencies {
+  compile project(':rop-common')
+}
+
+task packageTests(type: Jar) {
+  from sourceSets.test.output
+  classifier = 'tests'
+}
+artifacts.archives packageTests

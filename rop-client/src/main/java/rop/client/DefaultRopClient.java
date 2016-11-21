@@ -473,7 +473,7 @@ public class DefaultRopClient implements RopClient {
 			if (ignoreFieldNames != null) {
 				ignoreSignParams.addAll(ignoreFieldNames);
 			}
-			return RopUtils.sign(form, ignoreSignParams, headerMap, extInfo, appSecret);
+			return RopUtils.signNew(form, ignoreSignParams, headerMap, extInfo, appSecret);
 		}
 
 		/**

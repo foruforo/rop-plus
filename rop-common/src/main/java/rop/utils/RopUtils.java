@@ -38,7 +38,8 @@ public class RopUtils {
 	 * @return
 	 */
 	public static String sign(Map<String, String> paramValues,Map<String,String> headerMap,Map<String,String> extInfoMap, String secret) {
-		return sign(paramValues, null,headerMap,extInfoMap, secret);
+		//
+		return signNew(paramValues, null,headerMap,extInfoMap, secret);
 	}
 
 	/**
@@ -68,6 +69,39 @@ public class RopUtils {
 		}
 	}
 
+	/**
+	 * 将系统参数与业务参数混合在一起排序生成Sign
+	 * @param paramValues
+	 * @param ignoreParamNames
+	 * @param headerMap
+	 * @param extInfoMap
+	 * @param secret
+     * @return
+     */
+	public static String signNew(Map<String, String> paramValues, Set<String> ignoreParamNames,Map<String,String> headerMap,Map<String,String> extInfoMap,String secret) {
+		//密钥
+		try{
+			String contactStr = secret;
+			Map<String,String> allMap = new HashMap<>();
+			if(paramValues != null){
+				allMap.putAll(paramValues);
+			}
+			if(headerMap != null){
+				allMap.putAll(headerMap);
+			}
+			if(extInfoMap != null){
+				allMap.putAll(extInfoMap);
+			}
+
+
+			contactStr += contactValues(allMap,ignoreParamNames);
+			byte[] sha1Digest = getSHA1Digest(contactStr);
+			return byte2hex(sha1Digest);
+		}catch (IOException e){
+			throw new RopException(e);
+		}
+
+	}
 	private static String contactValues(Map<String,String> values,Set<String> ignoreParamNames){
 		StringBuilder sb = new StringBuilder();
 		List<String> paramNames = new ArrayList<String>(values.size());

@@ -1,0 +1,8 @@
+rootProject.name = 'rop-parent'
+include ':rop-common'
+include ':rop-client'
+include ':rop-server'
+project(':rop-common').projectDir = "$rootDir/rop-common" as File
+project(':rop-client').projectDir = "$rootDir/rop-client" as File
+project(':rop-server').projectDir = "$rootDir/rop-server" as File
+

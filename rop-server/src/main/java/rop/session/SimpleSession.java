@@ -14,5 +14,15 @@ public class SimpleSession implements Session {
     public Object getAttribute(String name) {
         return attributes.get(name);
     }
+
+    @Override
+    public Map<String, Object> getAttributes() {
+        return attributes;
+    }
+    @Override
+    public void setAttributes(Map<String, Object> map) {
+        attributes.clear();
+        this.attributes=map;
+    }
 }
 
